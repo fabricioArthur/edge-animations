@@ -1,0 +1,202 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  min-height: 100vh;
+  background: #fff;
+  gap: 3vw;
+}
+
+span {
+  font-size: 8em;
+  z-index: 1;
+  color: #333;
+}
+
+.animated_card1,
+.animated_card2 {
+  place-items: center;
+  position: relative;
+  cursor: pointer;
+  display: grid;
+  border-radius: 10px;
+  height: 300px;
+  width: 200px;
+  background: #333;
+}
+
+/*animated_1____________________________________________*/
+.animated_card1::before {
+  content: "";
+  position: absolute;
+  background: red;
+  height: 90%;
+  width: 90%;
+  border-radius: 10px;
+  transition: 0.3s;
+  animation: animate1 2s linear infinite;
+  z-index: 0;
+}
+.animated_card1:hover::before {
+  height: 100%;
+  width: 100%;
+}
+
+@keyframes animate1 {
+  50% {
+    filter: hue-rotate(350deg);
+  }
+}
+
+.animated_card1::after {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  background: #fff;
+  border-radius: 8px;
+}
+/*animated_2____________________________________________*/
+
+.animated_card2 {
+  overflow: hidden;
+}
+
+.animated_card2::before {
+  content: "";
+  position: absolute;
+  background: blue;
+  height: 50%;
+  width: 180%;
+  z-index: 0;
+  transform: rotate(60deg);
+}
+
+.animated_card2:hover::before {
+  animation: animate2 2s linear infinite;
+}
+
+@keyframes animate2 {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+.animated_card2::after {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  background: #fff;
+  border-radius: 8px;
+}
+
+/*animated_1and2________________________________________*/
+
+.animated_card1and2 {
+  place-items: center;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  display: grid;
+  border-radius: 10px;
+  height: 300px;
+  width: 200px;
+  background: #333;
+}
+
+.animated_card1and2::before {
+  content: "";
+  position: absolute;
+  background: red;
+  height: 180%;
+  width: 60%;
+  transform: rotate(360deg);
+}
+.animated_card1and2:hover::before {
+  animation: animate1and2 2s linear infinite;
+}
+@keyframes animate1and2 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+    filter: hue-rotate(-360deg) saturate(1000%);
+  }
+}
+.animated_card1and2::after {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  background: #fff;
+  border-radius: 8px;
+}
+
+/*animated_3____________________________________________*/
+.animated_card3 {
+  place-items: center;
+  position: relative;
+  cursor: pointer;
+  display: grid;
+  border-radius: 10px;
+  height: 300px;
+  width: 200px;
+  background: #333;
+}
+.animated_card3::before {
+  content: "";
+  position: absolute;
+  height: 300px;
+  width: 200px;
+  border-radius: 10px;
+  background: repeating-conic-gradient(
+    from var(--a),
+    #80ed99 0%,
+    #80ed99 5%,
+    transparent 5%,
+    transparent 20%,
+    #80ed99 100%
+  );
+}
+.animated_card3:hover::before {
+  animation: animate3 1s linear infinite;
+}
+@property --a {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+@keyframes animate3 {
+  0% {
+    --a: 0deg;
+  }
+  100% {
+    --a: 360deg;
+  }
+}
+.animated_card3::after {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  background: #fff;
+  border-radius: 8px;
+}
+/*______________________________________________________*/
+
+.imgIco {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 40px;
+  width: 150px;
+}
+
+#imgBoxicons {
+  width: 100%;
+  height: 100%;
+}
